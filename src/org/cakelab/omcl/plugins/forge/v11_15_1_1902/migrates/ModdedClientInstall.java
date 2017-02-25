@@ -164,12 +164,25 @@ public class ModdedClientInstall {
 			}
 		}
 
+		
 		File targetLibraryFile = VersionInfo.getLibraryPath(librariesDir);
 		grabbed = Lists.newArrayList();
 		List<Artifact> bad = Lists.newArrayList();
 		progress = DownloadUtils.downloadInstalledLibraries("clientreq", librariesDir, monitor, libraries, progress,
 				grabbed, bad);
 
+		for (int retries = 5; retries > 0 && bad.size() > 0; retries--) {
+			monitor.setProgress(0);
+			String list = Joiner.on("\n").join(bad);
+			monitor.setNote("These libraries failed to download. Trying again.\n" + list);
+			
+			grabbed = Lists.newArrayList();
+			bad = Lists.newArrayList();
+			progress = DownloadUtils.downloadInstalledLibraries("clientreq", librariesDir, monitor, libraries, progress,
+					grabbed, bad);
+		}
+		
+		
 		monitor.close();
 		if (bad.size() > 0) 
 		{
