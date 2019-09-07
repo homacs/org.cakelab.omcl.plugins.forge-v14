@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/OpenMCL-Tools-trunk"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/OpenMCL-Tools"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-8-oracle"/>
 	<classpathentry kind="lib" path="libs/forge-1.8.9-11.15.1.1902-1.8.9-installer.jar"/>
 	<classpathentry kind="output" path="bin"/>
